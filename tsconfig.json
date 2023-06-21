@@ -3,8 +3,8 @@
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */
-    // "incremental": true,                              /* Save .tsbuildinfo files to allow for incremental compilation of projects. */
-    // "composite": true,                                /* Enable constraints that allow a TypeScript project to be used with project references. */
+    "incremental": true,                              /* Save .tsbuildinfo files to allow for incremental compilation of projects. */
+    // "composite": true,                                /* 增量编译文件的存储位置 */
     // "tsBuildInfoFile": "./.tsbuildinfo",              /* Specify the path to .tsbuildinfo incremental compilation file. */
     // "disableSourceOfProjectReferenceRedirect": true,  /* Disable preferring source files instead of declaration files when referencing composite projects. */
     // "disableSolutionSearching": true,                 /* Opt a project out of multi-project reference checking when editing. */
@@ -12,10 +12,10 @@
 
     /* Language and Environment */
     "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    // "lib": [],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */
+    // "lib": ["DOM", "ES2015", "ScriptHost", "ES2019.Array"],/* TS需要引用的库，即声明文件，es5 默认引用dom、es5、scripthost,如需要使用es的高级版本特性，通常都需要配置，如es8的数组新特性需要引入"ES2019.Array",. */
     // "jsx": "preserve",                                /* Specify what JSX code is generated. */
-    // "experimentalDecorators": true,                   /* Enable experimental support for legacy experimental decorators. */
-    // "emitDecoratorMetadata": true,                    /* Emit design-type metadata for decorated declarations in source files. */
+    "experimentalDecorators": true,                   /* Enable experimental support for legacy experimental decorators. */
+    "emitDecoratorMetadata": true,                    /* Emit design-type metadata for decorated declarations in source files. */
     // "jsxFactory": "",                                 /* Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'. */
     // "jsxFragmentFactory": "",                         /* Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. 'React.Fragment' or 'Fragment'. */
     // "jsxImportSource": "",                            /* Specify module specifier used to import the JSX factory functions when using 'jsx: react-jsx*'. */
@@ -25,8 +25,8 @@
     // "moduleDetection": "auto",                        /* Control what method is used to detect module-format JS files. */
 
     /* Modules */
-    "module": "commonjs",                                /* Specify what module code is generated. */
-    // "rootDir": "./",                                  /* Specify the root folder within your source files. */
+    "module": "ESNext",                                /* // 生成代码的模板标准. */
+    // "rootDir": "./",                                  /* 指定输出文件目录(用于输出)，用于控制输出目录结构 */
     // "moduleResolution": "node10",                     /* Specify how TypeScript looks up a file from a given module specifier. */
     // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
     // "paths": {},                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
@@ -44,18 +44,18 @@
     // "noResolve": true,                                /* Disallow 'import's, 'require's or '<reference>'s from expanding the number of files TypeScript should add to a project. */
 
     /* JavaScript Support */
-    // "allowJs": true,                                  /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
-    // "checkJs": true,                                  /* Enable error reporting in type-checked JavaScript files. */
+    // "allowJs": true,                                  /* 允许编译器编译JS，JSX文件 */
+    // "checkJs": true,                                  /* 允许在JS文件中报错，通常与allowJS一起使用 */
     // "maxNodeModuleJsDepth": 1,                        /* Specify the maximum folder depth used for checking JavaScript files from 'node_modules'. Only applicable with 'allowJs'. */
 
     /* Emit */
     // "declaration": true,                              /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
     // "declarationMap": true,                           /* Create sourcemaps for d.ts files. */
-    // "emitDeclarationOnly": true,                      /* Only output d.ts files and not JavaScript files. */
-    // "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
-    // "inlineSourceMap": true,                          /* Include sourcemap files inside the emitted JavaScript. */
-    // "outFile": "./",                                  /* Specify a file that bundles all outputs into one JavaScript file. If 'declaration' is true, also designates a file that bundles all .d.ts output. */
-    // "outDir": "./",                                   /* Specify an output folder for all emitted files. */
+    // "emitDeclarationOnly": true,                      /* // 只生成声明文件，而不会生成js文件 */
+    // "sourceMap": true,                                /* 生成目标文件的sourceMap文件 */
+    // "inlineSourceMap": true,                          /* inlineSourceMap */
+    // "outFile": "./",                                  /* 将多个相互依赖的文件生成一个文件，可以用在AMD模块中，即开启时应设置"module": "AMD" */
+    // "outDir": "./",                                   /* 指定输出目录 */
     // "removeComments": true,                           /* Disable emitting comments. */
     // "noEmit": true,                                   /* Disable emitting files from a compilation. */
     // "importHelpers": true,                            /* Allow importing helper functions from tslib once per project, instead of including them per-file. */
@@ -70,7 +70,7 @@
     // "noEmitHelpers": true,                            /* Disable generating custom helper functions like '__extends' in compiled output. */
     // "noEmitOnError": true,                            /* Disable emitting files if any type checking errors are reported. */
     // "preserveConstEnums": true,                       /* Disable erasing 'const enum' declarations in generated code. */
-    // "declarationDir": "./",                           /* Specify the output directory for generated declaration files. */
+    // "declarationDir": "./",                           /*  指定生成声明文件存放目录. */
     // "preserveValueImports": true,                     /* Preserve unused imported values in the JavaScript output that would otherwise be removed. */
 
     /* Interop Constraints */
@@ -82,7 +82,7 @@
     "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
 
     /* Type Checking */
-    "strict": true,                                      /* Enable all strict type-checking options. */
+    "strict": false,                                      /* Enable all strict type-checking options. */
     // "noImplicitAny": true,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */
     // "strictNullChecks": true,                         /* When type checking, take into account 'null' and 'undefined'. */
     // "strictFunctionTypes": true,                      /* When assigning functions, check to ensure parameters and the return values are subtype-compatible. */
