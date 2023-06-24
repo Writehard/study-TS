@@ -9,7 +9,7 @@ let Arr2: [x:number, y?:boolean] = [1,true]
 // push其他类型的值是不可以的
 // Arr1.push(1)
 console.log(Arr1);
-let excel:[string, string, number][] = [
+let excel:[string, string, number][] = [ 
     ['evanzhe','man',18],
     ['evanzhe','man',18],
     ['evanzhe','man',18]

@@ -19,7 +19,7 @@ const http = new Http() as any
 http.fn()
 console.log(http.evanzhe);
 
-//装饰器工厂 利用了函数柯理化
+//2-装饰器工厂 利用了函数柯理化
 const Aase = (name:string) => {
     // 返回的类构造函数
     //target 
@@ -32,7 +32,7 @@ const Aase = (name:string) => {
     return fn
 
 }
-@Aase('魏建哲')
+@Aase('evan')
 
 class Ace {
 
